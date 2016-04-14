@@ -34,6 +34,7 @@ Use ES2015 today! Presets defined in `.babelrc`.
 ## React
 
 `react` ^15.0.1
+
 `react-dom` ^15.0.1  
 
 
@@ -46,4 +47,6 @@ The development of this starter pack was heavily influenced from the very excell
 
 ## TODO
 
-- Seperate entry points for styles and JS.
+- Create production / build config and script.
+- Create deploy to ghpages and script.
+- Setup seperate entry points for styles and JS.
