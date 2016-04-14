@@ -1,0 +1,28 @@
+{
+  "name": "react-babel-sass-webpack",
+  "version": "1.0.0",
+  "description": "Simple Webpack starter with for React with Sass",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thepeted/react-babel-sass-webpack.git"
+  },
+  "author": "Peter Daily",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/thepeted/react-babel-sass-webpack/issues"
+  },
+  "homepage": "https://github.com/thepeted/react-babel-sass-webpack#readme",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "html-webpack-plugin": "^2.15.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.12.15",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.10.0"
+  }
+}
