@@ -1,7 +1,3 @@
-module.exports = function () {
-  var element = document.createElement('h1');
+import React from 'react';
 
-  element.innerHTML = 'Hello You';
-
-  return element;
-};
+export default () => <h1>Hello You</h1>;

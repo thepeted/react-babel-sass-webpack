@@ -1,5 +1,8 @@
 require('./styles/main.sass') // root stylesheeet - .css, .scss or .sass
 
-var component = require('./components/component.js');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-document.body.appendChild(component());
+import Component from './components/component';
+
+ReactDOM.render(<Component />, document.querySelector('.container'));
