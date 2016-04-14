@@ -1,4 +1,4 @@
-require('./styles/main.sass') // root stylesheeet - .css, .scss or .sass
+require('./styles/main.css') // root stylesheeet - .css, .scss or .sass
 
 import React from 'react';
 import ReactDOM from 'react-dom';
