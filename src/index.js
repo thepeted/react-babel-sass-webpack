@@ -1,4 +1,4 @@
-require('./styles/main.css')
+require('./styles/main.sass') // root stylesheeet - .css, .scss or .sass
 
 var component = require('./components/component.js');
 

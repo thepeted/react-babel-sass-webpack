@@ -1,14 +1,16 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const webpack = require('webpack');
+
 
 const merge = require('webpack-merge');
 
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   src: path.join(__dirname, 'src'),
-  build: path.join(__dirname, 'build')
-  //style: path.join(__dirname, 'src', 'styles/main.css')
+  build: path.join(__dirname, 'build'),
+  styles: path.join(__dirname, 'src', 'styles')
 };
 
 const common = {
@@ -29,8 +31,13 @@ const common = {
       {
         test: /\.css$/,
         loaders: ['style', 'css'],
-        include: PATHS.src
-      }
+        include: PATHS.styles
+      },
+       {
+         test: /\.scss$|.sass$/,
+         loaders: ['style', 'css', 'sass'],
+         include: PATHS.styles
+       }
     ]
   }
 };
@@ -49,7 +56,10 @@ if (TARGET === 'start' || !TARGET){
       port: process.env.PORT
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new NpmInstallPlugin({
+        save: true
+      })
     ]
   });
 }
