@@ -22,6 +22,20 @@ Hot Module Replacement (HMR) enabled.
 Save your stylesheets in `./src/styles` and require your root stylesheet in to `index.js`.  Use `.scss` or
 `.sass` extensions to run the `sass-loader`.
 
+## Babel
+Use ES2015 today! presets set in `.babelrc`
+
+`babel-core` ^6.7.6
+`babel-preset-es2015` ^6.6.0
+`babel-preset-react` ^6.5.0
+
+## React
+
+`react` ^15.0.1
+`react-dom` ^15.0.1  
+
+
+
 ##Npm Install Webpack Plugin
 Detects changes to the Webpack configuration and automatically grabs any loaders and their dependencies from npm \o/.
 
@@ -33,5 +47,4 @@ The development of this starter pack was heavily influenced from the very excell
 
 TODO
 
-- Set up html template
-- Multiple entry points for styles and JS(?)
+- Seperate entry points for styles and JS.
