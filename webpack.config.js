@@ -1,19 +1,19 @@
 const path = require('path');
+
+const autoprefixer = require('autoprefixer');
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
-const webpack = require('webpack');
-
-
-const merge = require('webpack-merge');
 
 const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   src: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
   styles: path.join(__dirname, 'src', 'styles')
-  //templates: path.join(__dirname, 'src', 'templates')
 };
 
 const common = {
@@ -53,7 +53,7 @@ if (TARGET === 'start' || !TARGET){
       inline: true,
       progress: true,
       stats: 'errors-only',
-      //windows and ubuntu users may need alternative host and port settings
+      //windows and vm users may need alternative host and port settings
       host: process.env.HOST,
       port: process.env.PORT
     },
@@ -61,12 +61,12 @@ if (TARGET === 'start' || !TARGET){
       loaders: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css'],
+          loaders: ['style', 'css', 'postcss'],
           include: PATHS.styles
         },
          {
            test: /\.scss$|.sass$/,
-           loaders: ['style', 'css', 'sass'],
+           loaders: ['style', 'css', 'postcss', 'sass'],
            include: PATHS.styles
          }
       ]
@@ -76,7 +76,10 @@ if (TARGET === 'start' || !TARGET){
       new NpmInstallPlugin({
         saveDev: true
       })
-    ]
+    ],
+    postcss: function(){
+      return [autoprefixer];
+    }
   });
 }
 
@@ -86,12 +89,12 @@ if (TARGET === 'build') {
       loaders: [
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract('style', 'css'),
+          loader: ExtractTextPlugin.extract('style', 'css!postcss'),
           include: PATHS.styles
         },
          {
            test: /\.scss$|.sass$/,
-           loader: ExtractTextPlugin.extract('style', 'css!sass'),
+           loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
            include: PATHS.styles
          }
       ]
@@ -104,6 +107,9 @@ if (TARGET === 'build') {
           warnings: false
         }
       })
-    ]
+    ],
+    postcss: function(){
+      return [autoprefixer];
+    }
   });
 }
