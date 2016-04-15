@@ -1,4 +1,6 @@
 const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 const webpack = require('webpack');
@@ -30,16 +32,6 @@ const common = {
   ],
   module: {
     loaders: [
-      {
-        test: /\.css$/,
-        loaders: ['style', 'css'],
-        include: PATHS.styles
-      },
-       {
-         test: /\.scss$|.sass$/,
-         loaders: ['style', 'css', 'sass'],
-         include: PATHS.styles
-       },
        {
          test: /.jsx?$/,
          loaders: ['babel'],
@@ -65,6 +57,20 @@ if (TARGET === 'start' || !TARGET){
       host: process.env.HOST,
       port: process.env.PORT
     },
+    module: {
+      loaders: [
+        {
+          test: /\.css$/,
+          loaders: ['style', 'css'],
+          include: PATHS.styles
+        },
+         {
+           test: /\.scss$|.sass$/,
+           loaders: ['style', 'css', 'sass'],
+           include: PATHS.styles
+         }
+      ]
+    },
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new NpmInstallPlugin({
@@ -75,5 +81,29 @@ if (TARGET === 'start' || !TARGET){
 }
 
 if (TARGET === 'build') {
-  module.exports = merge(common, {});
+  module.exports = merge(common, {
+    module: {
+      loaders: [
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract('style', 'css'),
+          include: PATHS.styles
+        },
+         {
+           test: /\.scss$|.sass$/,
+           loader: ExtractTextPlugin.extract('style', 'css!sass'),
+           include: PATHS.styles
+         }
+      ]
+    },
+    plugins: [
+      new ExtractTextPlugin("styles.css"),
+      new CleanWebpackPlugin([PATHS.build]),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
+    ]
+  });
 }
