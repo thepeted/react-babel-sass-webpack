@@ -5,28 +5,29 @@ The aim of this starter pack is to keep things feature light, simple and easily 
 
 ## Whats Included?
 
-[Autoprefixer](https://www.npmjs.com/package/autoprefixer) `^6.3.6`
-[React](https://github.com/facebook/react) `^15.0.1`
-[Babel](https://babeljs.io/)
+- [Autoprefixer](https://www.npmjs.com/package/autoprefixer) `^6.3.6`
+- [Babel](https://babeljs.io/)
   - `babel-core` ^6.7.6
   - `babel-preset-es2015` ^6.6.0
   - `babel-preset-react` ^6.5.0
-[node-sass](https://github.com/sass/node-sass) `^3.4.2`
-[Webpack](https://webpack.github.io/) `^1.12.15`
-[Webpack Dev Server](https://webpack.github.io/docs/webpack-dev-server.html) `^1.14.1` (Hot Module Replacement (HMR) enabled)
+- [node-sass](https://github.com/sass/node-sass) `^3.4.2`
+- [React](https://github.com/facebook/react) `^15.0.1`
+- [Webpack](https://webpack.github.io/) `^1.12.15`
+- [Webpack Dev Server](https://webpack.github.io/docs/webpack-dev-server.html) `^1.14.1` (Hot Module Replacement (HMR) enabled)
 
 ## Prerequisites
-node `^4.2.0`
-npm `3.0.0`
+- node `^4.2.0`
+- npm `^3.0.0`
 
 ## Installation
 
 ```
-> git clone https://github.com/thepeted/react-babel-sass-webpack.git
-> cd react-babel-sass-webpack-git
-> npm install
-> rm -rf .git && git init // start your a fresh git repo
+$ git clone https://github.com/thepeted/react-babel-sass-webpack.git
+$ cd react-babel-sass-webpack-git
+$ npm install
+$ rm -rf .git && git init // start a fresh git repo
 ```
+
 ## Project Structure
 
 ```
@@ -48,11 +49,10 @@ npm `3.0.0`
 ```
 
 ## Included Scripts
-
 ```
-> npm start // Start the Development Server at localhost:8080
-> npm run build // Generates minified bundle.js, styles.css and index.html in /build
-> npm run deployghpages // Publish the files in /build to a gh-pages branch
+$ npm start               # Start the Development Server at localhost:8080
+$ npm run build           # Generates minified bundle.js, styles.css and index.html to /build
+$ npm run deployghpages   # Publish the files in /build to a gh-pages branch
 ```
 
 ### Configuration Tips
