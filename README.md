@@ -1,52 +1,67 @@
-# react-babel-sass-webpack
-Simple Webpack starter with React, Babel and Sass.
+# Simple React, Babel & Sass Webpack Starter
+Simple Webpack based starter for front-end development with React, Babel, Sass and Autoprefixer.
 
-## What's included?
+The aim of this starter pack is to keep things feature light, simple and easily manageable.  
 
-### Html Webpack Plugin
-This will generate an index.html file and include any generated webpack bundles, css and other assets as `<script>` and `<link>` tags.
+## Whats Included?
 
-The plugin is configured to take a template at `./src/templates/index.html`. The template is loaded by `html-loader`. EJS and lodash templates also supported.
+[Autoprefixer](https://www.npmjs.com/package/autoprefixer) `^6.3.6`
+[React](https://github.com/facebook/react) `^15.0.1`
+[Babel](https://babeljs.io/)
+  - `babel-core` ^6.7.6
+  - `babel-preset-es2015` ^6.6.0
+  - `babel-preset-react` ^6.5.0
+[node-sass](https://github.com/sass/node-sass) `^3.4.2`
+[Webpack](https://webpack.github.io/) `^1.12.15`
+[Webpack Dev Server](https://webpack.github.io/docs/webpack-dev-server.html) `^1.14.1` (Hot Module Replacement (HMR) enabled)
 
-### Split Configuration
-Multiple configurations can be maintained in a single `webpack.config.js` file. Utilising [webpack-merge](https://www.npmjs.com/package/webpack-merge), a common configuration is defined to branch  off from. Included configurations:
+## Prerequisites
+node `^4.2.0`
+npm `3.0.0`
 
-- **Development Server**
-- **Build** (Coming soon)
-- **ghPages Deployment** (Coming soon)
+## Installation
 
-## Webpack Dev Server
-Hot Module Replacement (HMR) enabled.
+```
+> git clone https://github.com/thepeted/react-babel-sass-webpack.git
+> cd react-babel-sass-webpack-git
+> npm install
+> rm -rf .git && git init // start your a fresh git repo
+```
+## Project Structure
 
-## CSS and Sass Style Loaders
-Save your stylesheets in `./src/styles` and require your root stylesheet in to `index.js`.  Using `.scss` or
-`.sass` extensions will invoke the `sass-loader`.
+```
+.
+├── src
+│   ├── components
+│   │   └── component.js
+│   ├── index.js                # Entry point for webpack.  Require your stylesheet here.
+│   ├── styles                  # webpack will work on .css, .sass or .css files here
+│   │   ├── main.css            
+│   │   └── resets              # Import resets as preferred to your root stylesheet
+│   │       ├── normalize.css
+│   │       └── reset.css
+│   └── templates
+│       └── index.html          # EJS and lodash templates also supported
+├── .babelrc                    # Babel presets are defined here
+├── package.json
+└── webpack.config.js
+```
 
-## Babel
-Use ES2015 today! Presets defined in `.babelrc`.
+## Included Scripts
 
-`babel-core` ^6.7.6
+```
+> npm start // Start the Development Server at localhost:8080
+> npm run build // Generates minified bundle.js, styles.css and index.html in /build
+> npm run deployghpages // Publish the files in /build to a gh-pages branch
+```
 
-`babel-preset-es2015` ^6.6.0
+### Configuration Tips
+The development setup and the build setup are both maintained in a single `webpack.config.js` file. Define common settings on the `common` object in `webpack.config.js` and edit/create conditionals based on the value of `process.env.npm_lifecycle_event`.
 
-`babel-preset-react` ^6.5.0
+npm-install-webpack-plugin detects changes to the `webpack.config.js` and automatically grabs any loaders and their dependencies from npm \o/.
 
-## React
+## Contributions
+Are welcome!
 
-`react` ^15.0.1
-
-`react-dom` ^15.0.1  
-
-
-
-##Npm Install Webpack Plugin
-Detects changes to the Webpack configuration and automatically grabs any loaders and their dependencies from npm \o/.
-
-##Credit
-The development of this starter pack was heavily influenced from the very excellent [SurviveJS - Webpack](http://survivejs.com/webpack/introduction/) by Juho Vepsäläinen.
-
-## TODO
-
-- Create production / build config and script.
-- Create deploy to ghpages and script.
-- Setup seperate entry points for styles and JS.
+## Acknowledgement
+The development of this starter pack was heavily influenced by studying [SurviveJS - Webpack](http://survivejs.com/webpack/introduction/) by Juho Vepsäläinen.
