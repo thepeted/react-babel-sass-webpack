@@ -25,7 +25,7 @@ The aim of this starter pack is to keep things feature light, simple and easily 
 $ git clone https://github.com/thepeted/react-babel-sass-webpack.git
 $ cd react-babel-sass-webpack-git
 $ npm install
-$ rm -rf .git && git init // start a fresh git repo
+$ rm -rf .git && git init         # start a fresh git repo
 ```
 
 ## Project Structure
@@ -58,7 +58,7 @@ $ npm run deployghpages   # Publish the files in /build to a gh-pages branch
 ### Configuration Tips
 The development setup and the build setup are both maintained in a single `webpack.config.js` file. Define common settings on the `common` object in `webpack.config.js` and edit/create conditionals based on the value of `process.env.npm_lifecycle_event`.
 
-npm-install-webpack-plugin detects changes to the `webpack.config.js` and automatically grabs any loaders and their dependencies from npm \o/.
+`npm-install-webpack-plugin` detects changes to the `webpack.config.js` and automatically grabs any loaders and their dependencies from npm \o/.
 
 ## Contributions
 Are welcome!
