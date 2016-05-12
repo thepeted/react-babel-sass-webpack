@@ -23,7 +23,7 @@ The aim of this starter pack is to keep things feature light, simple and easily 
 
 ```
 $ git clone https://github.com/thepeted/react-babel-sass-webpack.git
-$ cd react-babel-sass-webpack-git
+$ cd react-babel-sass-webpack
 $ npm install
 $ rm -rf .git && git init         # start a fresh git repo
 ```
@@ -36,7 +36,7 @@ $ rm -rf .git && git init         # start a fresh git repo
 │   ├── components
 │   │   └── component.js
 │   ├── index.js                # Entry point for webpack.  Require your stylesheet here.
-│   ├── styles                  # webpack will work on .css, .sass or .css files here
+│   ├── styles                  # webpack will work on .css, .sass or .scss files here
 │   │   ├── main.css            
 │   │   └── resets              # Import resets as preferred to your root stylesheet
 │   │       ├── normalize.css
